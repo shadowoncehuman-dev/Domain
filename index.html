@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b12">
+  <title>Coming Soon | TRMS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #080b12;
+      --accent: #8b9cff;
+      --text: #f5f6fa;
+      --muted: #9299aa;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+    }
+
+    /* Animated background */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(
+        circle,
+        rgba(85, 106, 255, 0.17),
+        transparent 68%
+      );
+      top: -280px;
+      left: -180px;
+      animation: float 9s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(
+        circle,
+        rgba(0, 190, 190, 0.09),
+        transparent 70%
+      );
+      bottom: -250px;
+      right: -160px;
+      animation: float 11s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes float {
+      from { transform: translate(0, 0); }
+      to { transform: translate(70px, 55px); }
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: min(90%, 700px);
+      text-align: center;
+      padding: 65px 30px;
+      animation: appear 1s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      margin-bottom: 75px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 16px;
+      border: 1px solid rgba(139,156,255,.22);
+      background: rgba(139,156,255,.07);
+      border-radius: 50px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #b4c0ff;
+      margin-bottom: 32px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: #83e6bb;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #83e6bb;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      50% { opacity: .35; transform: scale(.7); }
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(48px, 10vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -5px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      background: linear-gradient(110deg, #ffffff 10%, #8d9fff 55%, #66d6d0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .description {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 470px;
+      margin: 0 auto 38px;
+    }
+
+    .divider {
+      width: 45px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 35px;
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 27px;
+      border-radius: 9px;
+      text-decoration: none;
+      color: #080b12;
+      background: #f1f3ff;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .3s ease;
+      box-shadow: 0 8px 30px rgba(139,156,255,.12);
+    }
+
+    .telegram-btn:hover {
+      background: #aab6ff;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(139,156,255,.25);
+    }
+
+    .telegram-btn svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .note {
+      margin-top: 19px;
+      color: #737b8c;
+      font-size: 12px;
+    }
+
+    footer {
+      position: absolute;
+      z-index: 2;
+      bottom: 25px;
+      text-align: center;
+      width: 100%;
+      color: #606777;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    footer span {
+      color: #a0a8c0;
+    }
+
+    @media(max-width: 500px) {
+      .container {
+        padding: 40px 15px;
+      }
+
+      .brand {
+        margin-bottom: 65px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .telegram-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid"></div>
+
+  <main class="container">
+
+    <div class="brand">TR<span>MS</span></div>
+
+    <div class="status">
+      <span class="dot"></span>
+      SOMETHING NEW IS ON THE WAY
+    </div>
+
+    <h1>
+      Coming<br>
+      <span>Soon.</span>
+    </h1>
+
+    <div class="divider"></div>
+
+    <p class="description">
+      We're working behind the scenes to bring you something
+      worth the wait. A new experience is coming soon.
+      Stay tuned for the big reveal.
+    </p>
+
+    <a
+      class="telegram-btn"
+      href="https://t.me/+b4XsqbeHbpphMjc1"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21.9 3.2 18.6 20c-.25 1.2-.9 1.5-1.85.95l-5.1-3.75-2.45 2.35c-.27.27-.5.5-1.02.5l.36-5.15 9.4-8.5c.4-.36-.1-.56-.62-.2L5.7 13.55.7 12c-1.1-.35-1.12-1.1.23-1.6L20.45 2.9c.9-.33 1.7.22 1.45.3Z"/>
+      </svg>
+      Join Our Telegram Channel
+    </a>
+
+    <p class="note">
+      Stay updated. Be the first to know.
+    </p>
+
+  </main>
+
+  <footer>
+    © 2026 <span>TRMS</span>. All rights reserved.
+  </footer>
+
+</body>
+</html>
